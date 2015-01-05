@@ -1,0 +1,35 @@
+<a name="messages"></a>
+<h3> Function: messages() </h3>
+<hr>
+
+<p class="lead"> Get messages </p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">string</li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$id = 12;
+$data = array(
+  'first_name' => 'Ben',
+  'last_name' => 'Edmunds',
+);
+
+if ($this->ion_auth->update_user($id, $data))
+{
+  $messages = $this->ion_auth->messages();
+  echo $messages;
+}
+else
+{
+  $errors = $this->ion_auth->errors();
+  echo $errors;
+}
+{% endhighlight %}

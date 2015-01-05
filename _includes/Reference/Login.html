@@ -1,0 +1,35 @@
+<a name="login"></a>
+<h3> Function: login() </h3>
+<hr>
+
+<p class="lead"> Logs the user into the system. </p>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Parameters:
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item"> <code>Username</code> - string. Usally username of email but depends on your config. <span class="label label-danger pull-right">REQUIRED</span></li>
+        <li class="list-group-item"> <code>Password</code> - string. <span class="label label-danger pull-right">REQUIRED</span> </li>
+        <li class="list-group-item"> <code>Remember</code> - boolean. TRUE sets the user to be remembered if enabled in the config. <span class="label label-warning pull-right">OPTIONAL</span></li>
+      </ul>
+    </div>
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        Return:
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item"> <code>boolean</code> - TRUE if the user was successfully logged in. FALSE if the user was not logged in. </li>
+      </ul>
+    </div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$identity = 'ben.edmunds@gmail.com';
+$password = '12345678';
+$remember = TRUE; // remember the user
+
+$this->ion_auth->login($identity, $password, $remember);
+{% endhighlight %}

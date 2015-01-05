@@ -1,0 +1,44 @@
+<a name="user"></a>
+<h3>Function: user() </h3>
+<hr>
+
+<p class="lead">Get a user.</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Id</code> - integer. If a user id is not passed the id of the currently logged in user will be used. <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<h4> Return: </h4>
+
+{% highlight php %}
+stdClass Object (
+  [id] => 1
+  [ip_address] => 127.0.0.1
+  [username] => administrator
+  [password] => 59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4
+  [salt] => 9462e8eee0
+  [email] => admin@admin.com
+  [activation_code] => 19e181f2ccc2a7ea58a2c0aa2b69f4355e636ef4
+  [forgotten_password_code] => 81dce1d0bc2c10fbdec7a87f1ff299ed7e4c9e4a
+  [remember_code] => 9d029802e28cd9c768e8e62277c0df49ec65c48c
+  [created_on] => 1268889823
+  [last_login] => 1279464628
+  [active] => 0
+  [first_name] => Admin
+  [last_name] => Account
+  [company] => Some Corporation
+  [phone] => (123)456-7890
+)
+{% endhighlight %}
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$user = $this->ion_auth->user()->row();
+echo $user->email;
+{% endhighlight %}

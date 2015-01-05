@@ -1,0 +1,24 @@
+<a name="clear_login_attempts"></a>
+<h3> Function: clear_login_attemps() </h3>
+<hr>
+
+<p class="lead">
+  Clears all failed login attempt records for this identity or this IP address. This method is automatically called during the login()
+  method if the login succeded.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Identity</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+{% highlight php %}
+$identity = 'ben.edmunds@gmail.com';
+$password = '12345678';
+
+if ($this->ion_auth->login($identity, $password) == TRUE) {
+  $this->ion_auth->clear_login_attempts($identity)
+}
+{% endhighlight %}

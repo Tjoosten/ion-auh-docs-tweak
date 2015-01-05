@@ -1,0 +1,26 @@
+<a name="increase_login_attempts"></a>
+<h3> Function: increase_login_attempts() </h3>
+<hr>
+
+<p class="lead">
+  If login attempt tracking is enabled, records another failed login attempt for this this identity or IP address.
+  This method is automatically called during the login method if the login failed.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters: </div>
+  <ul class="list-group">
+    <li class="list-group-item"> <code>Identity</code> - string. <span class="label label-danger pull-right">REQUIRED</span> </li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$identity = 'ben.edmunds@gmail.com';
+$password = '12345678';
+
+if ($this->ion_auth->login($identity, $password) == FALSE) {
+  $this->ion_auth->increase_login_attempts($identity)
+}
+{% endhighlight %}

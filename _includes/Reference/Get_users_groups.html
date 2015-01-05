@@ -1,0 +1,31 @@
+<a name="get_users_groups"></a>
+<h3> Function: get_users_groups() </h3>
+
+<p class="lead">
+  Get all groups a user is part of.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Id</code> - integer. If u user id is not passed the id of the currently logged in user will be used. <span class="label label-warning pull-right">OPTIONAL</span> </li>
+  </ul>
+</div>
+
+<h4>Return:</h4>
+
+{% highlight php %}
+stdClass Object (
+  [id] => 1
+  [name] => admins
+  [description] => Administrator
+)
+{% endhighlight%}
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$user_groups = $this->ion_auth->get_users_groups($user->id)->result();
+{% endhighlight %}

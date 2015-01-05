@@ -1,0 +1,48 @@
+<a name="update_group"></a>
+<h3>Function: update_group() </h3>
+<hr>
+
+<p class="lead">
+  Update details of a group.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>group_id</code> - int <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>group_name</code> - string <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>group_description</code> - string <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>boolean.</code> TRUE if the group was updated, FALSE if the update failed.</li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+// source these things from anywhere you like (eg., a form)
+$group_id = 2;
+$group_name = 'test_group_changed_name';
+$group_description = 'I changed the name yay';
+
+// pass the right arguments and it's done
+$group_update = $this->ion_auth->update_group($group_id, $group_name, $group_description);
+
+if(!$group_update)
+{
+  $view_errors = $this->ion_auth->messages();
+}
+else
+{
+  // do more cool stuff
+}
+{% endhighlight %}

@@ -1,0 +1,45 @@
+<a name="delete_group"></a>
+<h3>Function: delete_group() </h3>
+<hr>
+
+<p class="lead">
+  Remove a group. Removes the group details form the configured <code>groups</code> table. Users belonging to the group are stripped. of this
+  status (references to this group are removed form users_group)), but user data itself remains untouched.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="group-list-item"><code>group_id</code> - int <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+      Return:
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item"><code>boolean</code>. TRUE is the group was deleted, FALSE if the delete failed.</li>
+    </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+// source this from anywhere you like (eg., a form)
+$group_id = 2;
+
+// pass the right arguments and it's done
+$group_delete = $this->ion_auth->delete_group($group_id);
+
+if(!$group_delete)
+{
+  $view_errors = $this->ion_auth->messages();
+}
+else
+{
+  // do more cool stuff
+}
+{% endhighlight %}

@@ -1,0 +1,34 @@
+<a name="add_to_group"></a>
+<h3>Function: add_to_group() </h3>
+<hr>
+
+<p class="lead">
+  Add user to group
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters: </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Group_id</code> - integer or array. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>User_id</code> - integer <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>boolean</code>. TRUE if the uer was added to group(s). FALSE if the user is not added to group(s).</li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+// pass an array of group ID's and user ID
+$this->ion_auth->add_to_group(array('1', '3', '6'), $user_id);
+
+// pass a single ID and user ID
+$this->ion_auth->add_to_group(1, $user_id);
+{% endhighlight %}

@@ -1,0 +1,23 @@
+<a name="logged_in"></a>
+<h3>Function: logged_in()</h3>
+<hr>
+
+<p class="lead">Check to see if a user is logged in.</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>boolean</code>. TRUE if the user is logged in. FALSE if the user is not logged in. </li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+if(! $this->ion_auth_logged_in())
+{
+  redirect('auth/login');
+}
+{% endhighlight %}

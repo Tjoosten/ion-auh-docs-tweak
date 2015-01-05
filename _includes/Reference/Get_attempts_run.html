@@ -1,0 +1,26 @@
+<a name="get_attempts_num"></a>
+<h3> Function: get_attempts_run() </h3>
+<hr>
+
+<p class="lead"> Returns the number of failed login attempts for this identity or IP address. </p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Parameters:</div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Identity</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Return:</div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>int</code>. The number of failed login attempts for this identity or IP address. </li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$identity = 'ben.edmunds@gmail.com';
+$num_attempts = $this->ion_auth->get_attempts_num($identity);
+{% endhighlight %}

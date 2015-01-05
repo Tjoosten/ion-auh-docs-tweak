@@ -1,0 +1,44 @@
+<a name="create_group"></a>
+<h3>Function: create_group()</h3>
+<hr>
+
+<p class="lead">
+  Create a group.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>group_name</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>group_description</code> - string <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">brand new group_id if the group was created, FALSE if the group creation failed.</li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+// pass the right arguments and it's done
+$group = $this->ion_auth->create_group('new_test_group', 'This is a test description');
+
+if(!$group)
+{
+  $view_errors = $this->ion_auth->messages();
+}
+else
+{
+  $new_group_id = $group;
+  // do more cool stuff
+}
+
+{% endhighlight %}

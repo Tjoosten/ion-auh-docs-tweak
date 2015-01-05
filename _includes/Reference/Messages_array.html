@@ -1,0 +1,51 @@
+<a name="messages_array"></a>
+<h3>Function: messages_array()</h3>
+<hr>
+
+<p class="lead"> Get messages as an aray.</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Langify</code> - boolean. TRUE means that the messages will be langified. <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>array</code></li>
+  </ul>
+</div>
+
+<h3>Usage:</h3>
+
+{% highlight php %}
+$id = 12;
+$data = array(
+  'first_name' => 'Ben',
+  'last_name' => 'Edmunds',
+);
+
+if ($this->ion_auth->update_user($id, $data))
+{
+  $messages = $this->ion_auth->messages_array();
+  foreach ($messages as $message)
+  {
+    echo $message;
+  }
+}
+else
+{
+  $errors = $this->ion_auth->errors_array();
+  foreach ($errors as $error)
+  {
+    echo $error;
+  }
+}
+{% endhighlight %}

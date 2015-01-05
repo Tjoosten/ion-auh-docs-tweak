@@ -1,0 +1,208 @@
+---
+layout: default
+---
+
+<div class="row">
+  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+
+    <h3> License </h3>
+    <hr>
+
+    <p>
+      Ion auth is released under the MIT License. You can read the license <a href="">Here.</a>
+    </p>
+
+    <h3> Installation </h3>
+    <hr>
+
+    <ul class="list-unstyled">
+      <li> 1. Download the latest version. </li>
+      <li> 2. Copy the files from this package to the corresponding folder in your application. For emxample, copy
+           Ion-auth/config/ion_auth.php to system/application/config/ion_auth.php.
+      </li>
+      <li> 3. Tun the appropriate SQL file from the /sql directory. </li>
+    </ul>
+
+    <p>
+      The default login is:
+    </p>
+
+    <ul>
+      <li> Email: admin@admin.com </li>
+      <li> Password: password </li>
+    </ul>
+
+    <h3> Upgrading </h3>
+    <hr>
+
+    <ul>
+      <li> 1. Download the latest verion.  </li>
+      <li> 2. Overwrite "libraries/ion_auth/php" and "models/ion_auth_model.php" with the new versions. </li>
+    </ul>
+
+    <h3> Loading Ion Auth </h3>
+    <hr>
+
+    <p> You load just Ion Auth like an other library: </p>
+
+    {% highlight php %}
+    $this->load->library('ion_auth');
+    {% endhighlight %}
+
+    <p> You can also autoload the library By setting the Ion Auth library in your autoload libraries in application/config/autoload.php. </p>
+
+    {% highlight php %}
+    $autoload['libraries'] = array('ion_auth');
+    {% endhighlight %}
+
+    <h3> Configuration options </h3>
+    <hr>
+
+    <div class="alert alert-info">
+      <p>
+        Ion Auth is extremely configurable. The following configuration option are avaible. <br />
+        To change configuration options simply edit the config/ion_auth.php file. <br />
+        Edit the ion_auth $config array only as needed.
+      </p>
+    </div>
+
+    <p>
+      <dl>
+        <dt class="margin-dt"><code> $config['tables']['groups'] </code></dt>
+        <dd>The table name to use for the groups table. <strong>DEFAULT</strong> is 'groups'.</dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['tables']['users'] </code></dt>
+        <dd> The table name to use for the users table. <strong>DEFAULT</strong> is 'users'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['tables']['users_groups'] </code></dt>
+        <dd> The table name to use for the users groups table. <strong>DEFAULT</strong> is 'users_groups'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['tables']['login_attempts'] </code></dt>
+        <dd> The table name to use for the login attempts table. <strong>DEFAULT</strong> is 'login_attempts'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['site_title'] </code></dt>
+        <dd> The title of your site, used for email. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['admin_mail'] </code></dt>
+        <dd> Your administrator email address. <strong>DEFAULT</strong> is 'admin@example.com'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['default_group'] </code></dt>
+        <dd> Name of the default user group. <strong>DEFAULT</strong> is 'members'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['admin_group'] </code></dt>
+        <dd> Name of the admin group. <strong>DEFAULT</strong> is 'admin'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['join']['users'] </code></dt>
+        <dd> Users table column you want to join with. <strong>DEFAULT</strong> is 'user_id'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['join']['groups'] </code></dt>
+        <dd> Group table column you want to join with. <strong>DEFAULT</strong> is 'group_id'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['identity'] </code></dt>
+        <dd>
+             Column to use for uniquely identifing user/logging in/etc. Usual choices are 'email' OR 'username'. <br />
+             You should add an index in the users table for whatever you set this option to. <strong>DEFAULT</strong> is 'email'.
+        </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['min_password_length'] </code></dt>
+        <dd> Minimum length of passwords. <strong>DEFAULT</strong> is '8'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['max_password_length'] </code></dt>
+        <dd> Maximum length of passwords. <strong>DEFAULT</strong> is '20'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['email_activation'] </code></dt>
+        <dd> TRUE or FALSE. Sets whether to require email activation or not. <strong>DEFAULT</strong> is 'false'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['remember_users'] </code></dt>
+        <dd> TRUE or FALSE. Sets whether to enable 'remember me' functionality or not. <strong>DEFAULT</strong> is 'true'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['user_expire'] </code></dt>
+        <dd> Sets how long to remember the user for in seconds. Set to zero for no expiration. <strong>DEFAULT</strong> is '86500'.</dd>
+        <br>
+
+        <dt class="margin-dt"><code> $config['user_extend_on_login'] </code></dt>
+        <dd> TRUE or FALSE. Extend the users session expiration on Login. <strong>DEFAULT is 'false'. </strong> </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['email_type'] </code></dt>
+        <dd> Email content type. <strong> DEFAULT</strong> is 'html'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['email_templates'] </code></dt>
+        <dd> Folder where the email view templates are stroed. <strong>DEFAULT</strong> is 'auth/email/'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['email_activate'] </code> </dt>
+        <dd> Filename of the email activation view template. <strong>DEFAULT</strong> is 'activate/tbl.php'. <dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['email_forgot_password'] </code> </dt>
+        <dd> Filename of the forgot password email view template. <strong>DEFAULT</strong> is 'forgot_password.tpl.php'.</dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['email_forgot_password_complete'] </code> </dt>
+        <dd> Filename of the forgot password complete amail view template. <strong>DEFAULT</strong> is 'new_password/tpl.php' </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['salt_length'] </code> </dt>
+        <dd> Length of the encryption salt. <strong>DEFAULT</strong> is '10'. </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['store_salt'] </code> </dt>
+        <dd>
+          TRUE or FALSE. Store the salt in a separate database column or not. <br />
+          This can be useful for interating with existing apps. <strong>DEFAULT</strong> is 'false'.
+        </dd>
+        <br />
+
+        <dt class="margin-dt"><code> $config['forgot_password_expiration'] </code> </dt>
+        <dd> Number of seconds before a forgot password request expires. If set to 0, requests will not expire. <strong>DEFAULT</strong> is 0. </dd>
+        <br />
+
+        <dt class="margin-dt"> <code> $config['track_login_attempts'] </code> </dt>
+        <dd> Track the number of failed login attampts for each user or IP. <strong>DEFAULT</strong> is 'false'.</dd>
+        <br/>
+
+        <dt class="margin-dt"> <code> $config['maximum_login_attempts'] </code> </dt>
+        <dd>
+          Set the maximum number of failed login attampts. This maximum is not enforced by the library, <br />
+          but is used by $this->ion_auth->is_max_login_attempts_exceeded(). The controller should check <br />
+            this function and act appropriately. if set to 0, there is no maximum. <strong>DEFAULT</strong> is 3.
+        </dd>
+        <br />
+
+        <dt class="margin-dt"> <code> $config['message_start_delimiter'] </code> </dt>
+        <dd> Starting delimiter for messages. <strong>DEFAULT</strong> is '&lt;p&gt;'.</dd>
+        <br />
+
+        <dt class="margin-dt"> <code> $config['message_end_delimiter'] </code> </dt>
+        <dd> Ending delimiter for messages. <strong>DEFAULT</strong> is '&lt;/p&gt;'. </dd>
+        <br />
+
+        <dt class="margin-left"> <code> $config['error_start_delimiter'] </code> </dt>
+        <dd> Starting dilimiter for errors. <strong>DEFAULT</strong> is '&lt;p&gt;'. </dd>
+        <br />
+
+        <dt class="margin-left"> <code> $config['error_end_delimiter'] </code> </dt>
+        <dd> Ending dilimiters for errors. <strong>DEFAULT</strong> is '&lt;/p&gt;.' </dt>
+        <br />
+      </dl>
+    </p>
+
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<a name="register"></a>
+<h3> Function: register() </h3>
+<hr>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters.
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Username</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>Password</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>Email</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>Additional Data</code> - multidimensional array. <span class="label label-danger pull-right">REQUIRED</soan> </li>
+    <li class="list-group-item"><code>Group</code> - array. If not passed the default group name set in the config will be used. <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Return:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"> <code>mixed</code> The ID of the user if the user was successfully created. FALSE if the user was not created. </li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$username = 'benedmunds';
+$password = '12345678';
+$email = 'ben.edmunds@gmail.com';
+$additional_data = array(
+  'first_name' => 'Ben',
+  'last_name' => 'Edmunds',
+);
+
+// Sets user to admin. No need for array('1', '2') as user is always set to member by default
+$group = array('1');
+
+$this->ion_auth->register($username, $password, $email, $additional_data, $group);
+{% endhighlight %}

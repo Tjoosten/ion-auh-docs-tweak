@@ -1,0 +1,9 @@
+# Dependencies
+markdown:     kramdown
+
+# server
+port:         4000
+
+# Costum vars
+Version:      2
+repo:         https://github.com/:user/:repo

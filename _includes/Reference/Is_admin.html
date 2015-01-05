@@ -1,0 +1,30 @@
+<a name="is_admin"></a>
+<h3>Function: is_admin() </h3>
+<hr>
+
+<p class="lead"> Check to see if the currently logged in user is an admin. </p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+    <ul class="list-group">
+      <li class="list-group-item"><code>id</code> - integer. if a user id of the currently logged in user will be used. <span class="label label-warning pull-right">OPTIONAL</span></li>
+    </ul>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">Return</div>
+    <ul class="list-group">
+      <li class="list-group-item"><code>boolean</code>. TRUE if user is an admin. FALSE if the user is not an admin. </li>
+    </ul>
+  </div>
+
+<h4>Usage:</h4>
+{% highlight php %}
+if (!$this->ion_auth->is_admin())
+{
+  $this->session->set_flashdata('message', 'You must be an admin to view this page');
+  redirect('welcome/index');
+}
+{% endhighlight %}

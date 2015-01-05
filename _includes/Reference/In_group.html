@@ -1,0 +1,62 @@
+<a name="in_group"></a>
+<h3>Function: in_group() </h3>
+<hr>
+
+<p class="lead"> Check to see if the currently logged in user is in the passed group. </p>
+
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters: </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Group ID</code> or <code>Name</code> - string integer or array of strings and integers. <span class="pull-right label label-danger">REQUIRED</span></li>
+    <li class="list-group-item"><code>User ID</code> - integer. Is a user id iF not passed the id of the currently logged in user will be used. <span class="pull-right label label-warning">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Return: </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>boolean</code>. TRUE is the user is in any of the givin groups, FALSE otherwise.</li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+# single group (by name)
+$group = 'gangstas';
+if (!$this->ion_auth->in_group($group))
+{
+  $this->session->set_flashdata('message', 'You must be a gangsta to view this page');
+  redirect('welcome/index');
+}
+
+# single group (by id)
+$group = 1;
+if (!$this->ion_auth->in_group($group))
+{
+  $this->session->set_flashdata('message', 'You must be part of the group 1 to view this page');
+  redirect('welcome/index');
+}
+
+# multiple groups (by name)
+$group = array('gangstas', 'hoodrats');
+if (!$this->ion_auth->in_group($group))
+  $this->session->set_flashdata('message', 'You must be a gangsta OR a hoodrat to view this page');
+  redirect('welcome/index');
+}
+
+# multiple groups (by id)
+$group = array(1, 2);
+if (!$this->ion_auth->in_group($group))
+  $this->session->set_flashdata('message', 'You must be a part of group 1 or 2 to view this page');
+  redirect('welcome/index');
+}
+
+# multiple groups (by id and name)
+$group = array('gangstas', 2);
+if (!$this->ion_auth->in_group($group))
+  $this->session->set_flashdata('message', 'You must be a part of the gangstas or group 2');
+  redirect('welcome/index');
+}
+{% endhighlight %}

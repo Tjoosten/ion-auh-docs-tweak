@@ -1,0 +1,40 @@
+<a name="set_error"></a>
+<h3>Function: set_error_delimiters()</h3>
+<hr>
+
+<p class="lead">
+  Set the error delimiters.
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Start delimiter</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>End delimiter</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+$id = 12;
+$data = array(
+  'first_name' => 'Ben',
+  'last_name' => 'Edmunds',
+);
+
+if ($this->ion_auth->update_user($id, $data))
+{
+  $this->ion_auth->set_message_delimiters('<p><strong>','</strong></p>');
+  $messages = $this->ion_auth->messages();
+  echo $messages;
+}
+else
+{
+  $this->ion_auth->set_error_delimiters('<p><strong>','</strong></p>');
+  $errors = $this->ion_auth->errors();
+  echo $errors;
+}
+{% endhighlight %}

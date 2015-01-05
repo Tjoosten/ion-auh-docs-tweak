@@ -1,0 +1,87 @@
+<a name="set_hook"></a>
+<h3> Function: set_hook() </h3>
+<hr>
+
+<p class="lead">
+  Set a single or multiple functions to be called when trigged by trigger_events(). See an example <a href="https://gist.github.com/657de89b26decda2b2fa">here.</a>
+</p>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Parameters:
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Event</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+    <li class="list-group-item"><code>Name</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+      <li class="list-group-item"><code>Class</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+      <li class="list-group-item"><code>Method</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+      <li class="list-group-item"><code>Arguments</code> - array. <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+class Accounts extends CI_Controller {
+
+  public function __construct()
+  {
+    parent::__construct();
+
+    /*
+    	make sure we loaded ion_auth2
+      The following does not need to go in __construct() it just needs to be set before
+      you trigger_events().
+    */
+    $event = 'socialpush';
+    $class = 'Accounts';
+    $args = array('this is the content of the message', 'billy');
+
+    $name = 'activate_sendmail';
+    $method = 'email';
+    $this->ion_auth->set_hook($event, $name, $class, $method, $args);
+    $name = 'call_Twitter';
+    $method = 'twitter';
+    $this->ion_auth->set_hook($event, $name, $class, $method, $args);
+    $name = 'call_MailChimp_API';
+    $method = 'mailchimp';
+    $this->ion_auth->set_hook($event, $name, $class, $method, $args);
+    $name = 'call_Facebook_API';
+    $method = 'facebook';
+    $this->ion_auth->set_hook($event, $name, $class, $method, $args);
+    $name = 'call_gPlus_API';
+    $method = 'gplus';
+    $this->ion_auth->set_hook($event, $name, $class, $method, $args);
+  }
+
+  public function Post_Message($one)
+  {
+    $this->ion_auth->trigger_events('socialpush');
+  }
+
+  public function email($content, $who)
+  {
+  	return true;
+  }
+
+  public function twitter($content, $who)
+  {
+    return true;
+  }
+
+  public function mailchimp($content, $who)
+  {
+  	return true;
+  }
+
+  public function facebook($content, $who)
+  {
+  	return true;
+  }
+
+  public function gplus($content, $who)
+  {
+  	return true;
+  }
+}
+{% endhighlight %}

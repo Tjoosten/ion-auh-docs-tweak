@@ -1,0 +1,36 @@
+<a name="identity_check"></a>
+<h3> Function: identity_check() </h3>
+<hr>
+
+<p class="lead"> Check to see if the identity is already registered. </p>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters: </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Identity</code> - string. <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">Return:</div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>boolean</code> - TRUE is the user is registered FALSE if the user is not registered.</li>
+  </ul>
+</div>
+
+{% highlight php %}
+// This is a lame example but it works.
+$user = $this->ion_auth->user();
+
+$data = array(
+  'identity' => $this->input->post('identity'),
+  'first_name' => $this->input->post('first_name'),
+  'last_name' => $this->input->post('last_name'),
+);
+
+if ($data['identity'] === $user->username || $data['identity'] === $user->email || $this->ion_auth->identity_check($data['identity']) === FALSE)
+{
+  $this->ion_auth->update_user($user->id, $data)
+}
+
+{% endhighlight%}

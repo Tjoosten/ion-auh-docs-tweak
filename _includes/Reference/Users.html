@@ -1,0 +1,24 @@
+<a name="users"></a>
+<h3>Function: users()</h3>
+<hr>
+
+<p class="lead"> Get the users. </p>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters: </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Group ID's0</code> - array. If an array of group id's are passed. this will return the users in those groups. <span class="label label-warning pull-right">OPTIONAL</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Return: </div>
+  <ul class="list-group">
+    <li class="list-group-item"> array of objects.</li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+{% highlight php %}
+$users = $this->ion_auth->users()->result();
+{% endhighlight %}

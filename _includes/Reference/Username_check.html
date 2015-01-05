@@ -1,0 +1,39 @@
+<a name="username_check"></a>
+<h3> Function username_check() </h3>
+<hr>
+
+<p class="lead"> Check to see if the username is already registered. </p>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Parameters: </div>
+  <ul class="list-group">
+    <li class="list-group-item"><code>Username</code> - string <span class="label label-danger pull-right">REQUIRED</span></li>
+  </ul>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading"> Return: </div>
+  <ul class="list-group">
+    <li class="list-group-item"> <code>boolean</code>. TRUE if the user is registered. FALSE if the user is not rgistered. </li>
+  </ul>
+</div>
+
+<h4>Usage:</h4>
+
+{% highlight php %}
+// This is a lame example but it works.  Usually you would use this method with form_validation.
+$username = $this->input->post('username');
+$password = $this->input->post('password');
+$email = $this->input->post('email');
+
+$additional_data = array(
+  'first_name' => $this->input->post('first_name'),
+  'last_name' => $this->input->post('last_name'),
+);
+
+if (!$this->ion_auth->username_check($username))
+{
+  $group_name = 'users';
+  $this->ion_auth->register($username, $password, $email, $additional_data, $group_name)
+}
+{% endhighlight %}
