@@ -4,7 +4,7 @@ Ion Auth docs
 
 This is a tweaked version of the CodeIgniter Ion Auth documentation.
 
-Currently in **Beta** and developed by Tim Joosten.
+Currently in **Beta**! And developed by Tim Joosten.
 
 ## Jekyll
 This documentation port is built with [Jekyll](http://wwww.jekyllrb.com) and in the futere hosted on GitHub Pages. Read the info belo for running
