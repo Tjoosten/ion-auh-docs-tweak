@@ -1,5 +1,6 @@
 Ion Auth docs
 =============
+[![Build Status](https://travis-ci.org/Tjoosten/ion-auh-docs-tweak.svg)](https://travis-ci.org/Tjoosten/ion-auh-docs-tweak)
 
 This is a tweaked version of the CodeIgniter Ion Auth documentation.
 
